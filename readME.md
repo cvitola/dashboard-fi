@@ -1,48 +1,30 @@
 # 📈 Dashboard de Inversiones Personales
 
-Mini aplicación web desarrollada en Python con **Streamlit** para el control, seguimiento y visualización de inversiones personales. Utiliza **Google Sheets** como base de datos (backend serverless) para facilitar la carga de datos desde cualquier dispositivo.
+Aplicación web modular desarrollada en Python con **Streamlit** para el control, seguimiento y visualización de finanzas e inversiones. El sistema funciona como una interfaz CRUD ágil que lee y escribe de forma directa en un archivo Excel local, evitando la carga manual propensa a errores.
 
 ---
 
-## 🛠️ Requisitos Previos
+## 🚀 Características Clave
 
-* Python 3.9 o superior.
-* Una cuenta de Google Cloud (para la conexión segura con la API de Sheets).
+* **Separación de Conceptos:** Arquitectura modular (Vistas independientes de la lógica de datos).
+* **Evolución Histórica:** Gráfico de líneas dinámico que trackea el crecimiento del capital total o por fondo.
+* **Distribución del Portafolio:** Gráfico de torta automatizado que calcula la foto del día de tus activos.
+* **Métricas de Rendimiento:** Historial de variación porcentual período a período con alertas visuales (Verde/Rojo) para ganancias y pérdidas.
+* **Carga Atómica:** Formulario de registro inteligente que detecta y escribe en la última fila real del Excel sin generar registros huérfanos.
 
 ---
 
-## 🚀 Configuración del Entorno (Paso 0)
+## 📂 Estructura del Proyecto
 
-Para mantener las dependencias aisladas y evitar conflictos, se recomienda usar un entorno virtual de Python (`venv`).
+El proyecto está organizado bajo una arquitectura limpia y escalable:
 
-### 1. Clonar el repositorio
-```bash
-git clone [https://github.com/TU_USUARIO/TU_REPOSITORIO.git](https://github.com/TU_USUARIO/TU_REPOSITORIO.git)
-cd TU_REPOSITORIO
-
-### 2. Instalar ambiente aislado venv
-python -m venv venv
-### 3. Instalar las siguientes librerias python
-streamlit > pagina web local.
-pandas > para manejar los datos
-openpyxl > leer y entender archivos .xlsx
-pltly > grafica y esteticas
-pip install streamlit pandas openpyxl plotly
-
-================================
-
-#Nueva estructura de proyecto.
-
-Nueva estructura de proyecto
-
+```text
 mi_proyecto/
 │
-├── app.py                 # El director de orquesta (Menú y ruteo principal)
-├── data_manager.py        # El cerebro de datos (Lectura y escritura en el Excel)
-└── views/                 # Carpeta para las pantallas visuales
-    ├── __init__.py        # Archivo vacío para que Python reconozca la carpeta
-    ├── dashboard.py       # Código exclusivo de los gráficos y KPIs
-    └── carga.py           # Código exclusivo del formulario de carga
-
-
-### 4. Agregar un CRUD para no cargar el excel a mano
+├── app.py                 # Orquestador principal (Manejo de menú y ruteo)
+├── data_manager.py        # Cerebro de datos (Lectura, escritura y tipado en Excel)
+├── caja.xlsx              # Base de datos local (Tablas por tipo de inversión)
+└── views/                 # Pantallas de la interfaz de usuario
+    ├── __init__.py        # Inicializador de módulo de Python
+    ├── dashboard.py       # Panel visual de analítica, KPIs y gráficos Plotly
+    └── carga.py           # Formulario de entrada de nuevos registros
