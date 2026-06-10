@@ -19,3 +19,12 @@ Para mantener las dependencias aisladas y evitar conflictos, se recomienda usar 
 ```bash
 git clone [https://github.com/TU_USUARIO/TU_REPOSITORIO.git](https://github.com/TU_USUARIO/TU_REPOSITORIO.git)
 cd TU_REPOSITORIO
+
+### 2. Instalar ambiente aislado venv
+python -m venv venv
+### 3. Instalar las siguientes librerias python
+streamlit > pagina web local.
+pandas > para manejar los datos
+openpyxl > leer y entender archivos .xlsx
+pltly > grafica y esteticas
+pip install streamlit pandas openpyxl plotly
